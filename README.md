@@ -14,4 +14,7 @@ your-blog-repo/
 └── A Third Post/
     ├── index.html
     └── cover.png          (can be .png, .gif, etc.)
+< cover
+Recommended Aspect Ratio: 5:3
+Recommended Size: 1000 x 600 pixels >
 ```
