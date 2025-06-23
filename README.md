@@ -1,4 +1,7 @@
 # blog
+
+## Structure
+```
 your-blog-repo/
 ├── My First Amazing Blog Post/
 │   ├── index.html         (The content of your post)
@@ -11,3 +14,4 @@ your-blog-repo/
 └── A Third Post/
     ├── index.html
     └── cover.png          (can be .png, .gif, etc.)
+```
