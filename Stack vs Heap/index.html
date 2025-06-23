@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stack vs Heap - My CS Blog</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(to right, #fff, #ccc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+    }
+
+    .tag {
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-weight: 500;
+      color: #ccc;
+    }
+
+    .tag.date {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      border-color: #fff;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 40px;
+      color: #fff;
+      position: relative;
+    }
+
+    h2::before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 10px;
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(to bottom, #fff, #aaa);
+      border-radius: 2px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #ccc;
+      text-align: justify;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    code {
+      background: #1a1a1a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #0ff;
+      font-family: monospace;
+    }
+
+    blockquote {
+      border-left: 4px solid #888;
+      padding-left: 20px;
+      font-style: italic;
+      color: #aaa;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Stack vs Heap</h1>
+
+  <div class="tags">
+    <span class="tag date">June 23, 2025</span>
+    <span class="tag">CS Fundamentals</span>
+    <span class="tag">7 min read</span>
+  </div>
+
+  <p><strong>Why does Stack vs Heap even matter?</strong> Because once you understand memory layout, you start writing code that’s not just functional—but efficient, scalable, and predictable. Welcome to the invisible architecture beneath your code.</p>
+
+  <h2>What is the Stack?</h2>
+  <p>The stack is a tightly controlled, last-in-first-out (LIFO) memory area. Think of it as a disciplined worker: fast, strict, and automatic.</p>
+  <ul>
+    <li>Used for function calls and local variables</li>
+    <li>Automatically allocates and deallocates memory</li>
+    <li>Grows and shrinks as functions are called and return</li>
+    <li>Extremely fast due to its structured access pattern</li>
+  </ul>
+
+  <p><code>int x = 5;</code> → This likely lives on the stack if inside a function.</p>
+
+  <h2>What is the Heap?</h2>
+  <p>The heap is the wild west of memory—flexible, but slower and more chaotic. It’s manually managed memory that lives until you delete it.</p>
+  <ul>
+    <li>Used for dynamic memory (e.g. <code>malloc</code>, <code>new</code>)</li>
+    <li>Manually allocated and freed</li>
+    <li>Can lead to memory leaks if misused</li>
+    <li>Access is slower due to fragmentation and indirection</li>
+  </ul>
+
+  <p><code>int* ptr = malloc(sizeof(int));</code> → This is heap memory.</p>
+
+  <h2>How Do They Interact?</h2>
+  <ul>
+    <li>Stack frames can contain pointers to heap objects</li>
+    <li>Function calls (stack) often construct or manipulate data that lives longer (heap)</li>
+    <li>Garbage collected languages abstract away heap management—but it’s still there</li>
+  </ul>
+
+  <h2>Performance Implications</h2>
+  <p>Stack is fast because the OS manages it using a pointer that just moves up/down. The heap is flexible, but can cause:</p>
+  <ul>
+    <li>Fragmentation</li>
+    <li>Cache misses</li>
+    <li>Unpredictable lifetime bugs</li>
+  </ul>
+
+  <blockquote>
+    The stack is for temporary certainty. The heap is for flexible complexity.
+  </blockquote>
+
+  <h2>Real-World Analogies</h2>
+  <ul>
+    <li><strong>Stack</strong>: A cafeteria tray stack—LIFO, organized</li>
+    <li><strong>Heap</strong>: A parking lot—you can park anywhere, but finding your car (or space) takes time</li>
+  </ul>
+
+  <h2>What Should CS Students Take Away?</h2>
+  <ul>
+    <li>Understand memory to debug faster and optimize better</li>
+    <li>Don’t overuse the heap just because you can</li>
+    <li>Stack overflow ≠ “too many files open” — it's deep recursion or huge local arrays</li>
+    <li>Languages like C force you to understand this. Languages like Python hide it. Know both layers.</li>
+  </ul>
+
+  <p>Whether you’re writing bare metal firmware or backend APIs, understanding Stack vs Heap will always help you write better code—with fewer surprises.</p>
+
+</body>
+</html>
