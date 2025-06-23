@@ -1,406 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How Do We Build Tech That Lasts 1,000 Years? - My Blog</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How Do We Build Tech That Lasts 1,000 Years? - My Blog</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-        :root {
-            --bg-primary: #000000;
-            --bg-secondary: #111111;
-            --bg-tertiary: #1a1a1a;
-            --accent-primary: #ffffff;
-            --accent-secondary: #cccccc;
-            --accent-gradient: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
-            --text-primary: #ffffff;
-            --text-secondary: #cccccc;
-            --text-muted: #888888;
-            --border-color: #333333;
-            --shadow-glow: 0 0 20px rgba(255, 255, 255, 0.1);
-            --shadow-deep: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-        }
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            background-image: none;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(to right, #fff, #ccc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+    }
 
-        .blog-container {
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: var(--shadow-deep);
-            border: 1px solid var(--border-color);
-            position: relative;
-        }
+    .tag {
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-weight: 500;
+      color: #ccc;
+    }
 
+    .tag.date {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      border-color: #fff;
+    }
 
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 40px;
+      color: #fff;
+      position: relative;
+    }
 
-        .back-to-blog {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent-primary);
-            text-decoration: none;
-            margin-bottom: 40px;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            background: rgba(0, 212, 255, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
+    h2::before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 10px;
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(to bottom, #fff, #aaa);
+      border-radius: 2px;
+    }
 
-        .back-to-blog:hover {
-            background: rgba(0, 212, 255, 0.1);
-            border-color: rgba(0, 212, 255, 0.4);
-            transform: translateX(-5px);
-            box-shadow: var(--shadow-glow);
-        }
+    p {
+      margin-bottom: 20px;
+      color: #ccc;
+      text-align: justify;
+    }
 
-        .blog-header {
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-            z-index: 1;
-        }
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
 
-        .blog-title {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-            font-weight: 700;
-            line-height: 1.2;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    li {
+      margin-bottom: 10px;
+    }
 
-        .blog-meta {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
-            font-size: 13px;
-        }
-
-        .meta-item {
-            background: var(--bg-tertiary);
-            padding: 8px 16px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-        }
-
-        .meta-item.date {
-            background: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
-            font-weight: 600;
-        }
-
-        .blog-excerpt {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 25px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 3px solid var(--text-primary);
-            border-radius: 0 12px 12px 0;
-        }
-
-        .blog-content {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            position: relative;
-            z-index: 1;
-        }
-
-        .blog-content h2 {
-            font-size: 2rem;
-            margin: 40px 0 20px 0;
-            color: var(--text-primary);
-            font-weight: 600;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .blog-content h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 30px;
-            background: var(--accent-gradient);
-            border-radius: 2px;
-        }
-
-        .blog-content h3 {
-            font-size: 1.4rem;
-            margin: 30px 0 15px 0;
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .blog-content p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .blog-content strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .blog-content blockquote {
-            background: var(--bg-tertiary);
-            border-left: 4px solid var(--text-primary);
-            padding: 30px;
-            margin: 30px 0;
-            font-style: italic;
-            color: var(--text-primary);
-            border-radius: 0 12px 12px 0;
-            position: relative;
-        }
-
-        .blog-content blockquote::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 4rem;
-            color: var(--text-secondary);
-            opacity: 0.3;
-        }
-
-        .blog-content ul, .blog-content ol {
-            margin: 20px 0;
-            padding-left: 0;
-        }
-
-        .blog-content li {
-            margin-bottom: 12px;
-            padding-left: 30px;
-            position: relative;
-            list-style: none;
-        }
-
-        .blog-content li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--text-primary);
-            font-size: 12px;
-            top: 2px;
-        }
-
-        .highlight-box {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 0;
-            color: var(--text-secondary);
-            position: relative;
-        }
-
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--accent-gradient);
-            border-radius: 16px 16px 0 0;
-        }
-
-        .highlight-box strong {
-            color: var(--text-primary);
-        }
-
-        .highlight-box ul {
-            margin-top: 15px;
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--text-secondary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-primary);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .blog-container {
-                padding: 30px 25px;
-            }
-            
-            .blog-title {
-                font-size: 2.2rem;
-            }
-            
-            .blog-meta {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .meta-item {
-                display: inline-block;
-                margin-right: 10px;
-            }
-
-            .blog-content h2 {
-                font-size: 1.6rem;
-            }
-        }
-
-        /* Add some subtle particle effect */
-    </style>
+    blockquote {
+      border-left: 4px solid #888;
+      padding-left: 20px;
+      font-style: italic;
+      color: #aaa;
+      margin: 30px 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="blog-container">
 
-            
-            <header class="blog-header">
-                <h1 class="blog-title">How Do We Build Tech That Lasts 1,000 Years?</h1>
-                
-                <div class="blog-meta">
-                    <span class="meta-item date">June 23, 2025</span>
-                    <span class="meta-item">Philosophy</span>
-                    <span class="meta-item">10 min read</span>
-                </div>
-                
-                <p class="blog-excerpt">
-                    In an age when smartphones barely last five years and software updates break more than they fix, the idea of building technology that endures for a millennium sounds radical.
-                </p>
-            </header>
+  <h1>How Do We Build Tech That Lasts 1,000 Years?</h1>
 
-            <main class="blog-content">
-                <p>Yet it's a question we must begin to ask—because short-term thinking is no longer sustainable in a world increasingly shaped by complex, interdependent systems.</p>
+  <div class="tags">
+    <span class="tag date">June 23, 2025</span>
+    <span class="tag">Philosophy</span>
+    <span class="tag">10 min read</span>
+  </div>
 
-                <h2>What Does "1,000-Year Tech" Mean?</h2>
-                
-                <p>It doesn't just mean durable hardware. It means building <strong>systems, protocols, and infrastructures</strong> that are:</p>
+  <p><strong>In a world where phones last just a few years and software updates often cause problems, how can we create technology that endures a millennium?</strong> The question might seem radical, but it’s critical as we face a future shaped by complex, interconnected systems.</p>
 
-                <ul>
-                    <li><strong>Resilient to time</strong> and unpredictable change</li>
-                    <li><strong>Comprehensible across generations</strong></li>
-                    <li><strong>Maintained by design</strong>, not by constant manual patchwork</li>
-                    <li><strong>Ethically grounded</strong>, to remain relevant to future civilizations</li>
-                </ul>
+  <h2>What Does "1,000-Year Tech" Mean?</h2>
+  <p>It’s not just about hardware durability. It means designing <strong>systems, protocols, and infrastructures</strong> that:</p>
+  <ul>
+    <li>Resist the test of time and unexpected change</li>
+    <li>Remain understandable across generations</li>
+    <li>Are maintained by thoughtful design, not constant patching</li>
+    <li>Stay ethically grounded to remain meaningful for future societies</li>
+  </ul>
+  <p>The aim is continuity of knowledge and function in a future we can’t fully predict.</p>
 
-                <p>The goal isn't just longevity—it's continuity of knowledge and function in a world we cannot fully imagine.</p>
+  <h2>The Problem of Obsolescence</h2>
+  <p>Modern tech often embraces planned obsolescence or rapid upgrades. Software becomes obsolete, hardware unsupported, and file formats unreadable. A 1,000-year mindset asks: Will people 20 generations from now recognize, understand, or fix this system?</p>
 
-                <h2>The Problem of Obsolescence</h2>
+  <h2>Lessons from Ancient Systems</h2>
+  <p>Humans have already created 1,000-year tech—just not digital. Examples include:</p>
+  <ul>
+    <li>The Antikythera mechanism (over 2,000 years old): an ancient mechanical computer</li>
+    <li>The Pyramids: built with knowledge of time, erosion, and astronomy</li>
+    <li>Language and mathematics: symbolic systems that evolve yet endure</li>
+  </ul>
+  <p>These show how clarity, simplicity, and symbolism help knowledge outlast its creators.</p>
 
-                <p>Most modern tech is designed with planned obsolescence or rapid iteration in mind. Software becomes outdated, hardware unsupported, and formats unreadable. A 1,000-year mindset rejects this churn. It demands we ask: Will someone 20 generations from now still be able to understand, repair, or even recognize this system?</p>
+  <h2>Modern Experiments in Long-Term Thinking</h2>
+  <p>Groups like the <strong>Long Now Foundation</strong> explore embedding long-term thinking into technology, focusing on:</p>
+  <ul>
+    <li>Transparency rather than secrecy</li>
+    <li>Repairability over replacement</li>
+    <li>Documentation that transcends cultural shifts</li>
+    <li>Governance systems that adapt without breaking</li>
+  </ul>
 
-                <h2>Lessons from Ancient Systems</h2>
+  <h2>What Might Endure?</h2>
+  <ul>
+    <li>Open-source protocols that outlive corporate software</li>
+    <li>Decentralized systems (like blockchains) resisting single points of failure</li>
+    <li>Biological storage (DNA data) preserving info across epochs</li>
+    <li>AI as custodians aligned with human values</li>
+  </ul>
 
-                <p>Humanity has already built 1,000-year technologies—just not digital ones. Consider:</p>
+  <h2>Final Thought</h2>
+  <p>The biggest challenge isn’t technical — it’s philosophical. Building for 1,000 years demands humility, seeing ourselves as ancestors, not owners of the future. In that light, even a line of code becomes a legacy.</p>
 
-                <ul>
-                    <li><strong>The Antikythera mechanism</strong> (2,000+ years old): A mechanical analog computer</li>
-                    <li><strong>The Pyramids</strong>: Engineered with knowledge of time, erosion, and cosmic alignment</li>
-                    <li><strong>Language and mathematics</strong>: Symbolic systems that have evolved but endured</li>
-                </ul>
+  <blockquote>
+    "The best time to plant a tree was 20 years ago. The second best time is now. The same applies to building technology that serves generations we'll never meet."
+  </blockquote>
 
-                <p>These examples show that <strong>clarity, simplicity, and symbolic abstraction</strong> help information outlive its creators.</p>
+  <p>This mindset shift changes everything: instead of "What can we build?" we ask "What should we leave behind?" The answer may decide whether our digital civilization thrives or becomes a mystery for future explorers.</p>
 
-                <h2>Modern Experiments in Long-Term Thinking</h2>
-
-                <p>Projects like the <strong>Long Now Foundation</strong> and the <strong>10,000 Year Clock</strong> explore how to embed long-term thinking into technology. Their principles?</p>
-
-                <div class="highlight-box">
-                    <ul>
-                        <li><strong>Transparency over opacity</strong></li>
-                        <li><strong>Repairability over replacement</strong></li>
-                        <li><strong>Documentation that survives cultural shifts</strong></li>
-                        <li><strong>Governance that adapts without breaking the system</strong></li>
-                    </ul>
-                </div>
-
-                <h2>What Might Endure?</h2>
-
-                <ul>
-                    <li><strong>Open-source protocols</strong>, if well-documented, could outlast corporate software</li>
-                    <li><strong>Decentralized systems</strong>, like certain blockchain technologies, resist central failure</li>
-                    <li><strong>Biological storage</strong> (e.g. DNA data) may preserve information across epochs</li>
-                    <li><strong>Artificial intelligence</strong> might become its own custodian, if aligned with human values</li>
-                </ul>
-
-                <h2>Final Thought</h2>
-
-                <p>The true challenge isn't technical—it's philosophical. To build for 1,000 years requires humility. It demands that we accept our role not as owners of the future, but as ancestors. When we think on those terms, even a line of code becomes a legacy.</p>
-
-                <blockquote>
-                    "The best time to plant a tree was 20 years ago. The second best time is now. The same principle applies to building technology that will serve generations we'll never meet."
-                </blockquote>
-
-                <p>This shift in perspective changes everything about how we approach technology development. Instead of asking "What can we build?" we must ask "What should we leave behind?" The answer to that question might just determine whether our digital civilization endures or becomes another archaeological curiosity for future explorers to puzzle over.</p>
-            </main>
-        </div>
-    </div>
-
-    <script>
-        // Add smooth scroll behavior
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
