@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why I Prefer Using Linux - My CS Blog</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(to right, #fff, #ccc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+    }
+
+    .tag {
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-weight: 500;
+      color: #ccc;
+    }
+
+    .tag.date {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      border-color: #fff;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 40px;
+      color: #fff;
+      position: relative;
+    }
+
+    h2::before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 10px;
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(to bottom, #fff, #aaa);
+      border-radius: 2px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #ccc;
+      text-align: justify;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    code {
+      background: #1a1a1a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #0ff;
+      font-family: monospace;
+    }
+
+    blockquote {
+      border-left: 4px solid #888;
+      padding-left: 20px;
+      font-style: italic;
+      color: #aaa;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Why I Prefer Using Linux</h1>
+
+  <div class="tags">
+    <span class="tag date">June 23, 2025</span>
+    <span class="tag">Linux</span>
+    <span class="tag">6 min read</span>
+  </div>
+
+  <p><strong>After years of working across different operating systems, Linux has become my primary development environment.</strong> What began as experimentation has evolved into a deliberate choice based on technical merit, efficiency, and long-term professional considerations. In this post, I'll discuss the practical reasons why Linux has become my preferred platform for software development.</p>
+
+  <h2>Open Source Philosophy and Transparency</h2>
+  <p>Linux embodies the open source philosophy at its core. Unlike proprietary systems, you have complete visibility into how the operating system functions. This transparency offers several advantages:</p>
+  <ul>
+    <li><strong>Full system control:</strong> You can inspect, modify, and understand every component of your operating system</li>
+    <li><strong>No vendor lock-in:</strong> Freedom from proprietary constraints allows for genuine customization</li>
+    <li><strong>Community-driven development:</strong> The collaborative nature of Linux development ensures continuous improvement and security</li>
+    <li><strong>Cost efficiency:</strong> Professional-grade tools and environments without licensing fees</li>
+  </ul>
+  <p>For developers, this transparency means you're not working with a black box. When issues arise, you can trace them to their source rather than relying solely on vendor support.</p>
+
+  <h2>Native Development Environment</h2>
+  <p>Linux provides a development environment that feels native and integrated. Most development tools were designed with Unix-like systems in mind, making Linux their natural home:</p>
+  <ul>
+    <li><strong>Package management:</strong> Tools like <code>apt</code>, <code>yum</code>, or <code>pacman</code> provide efficient software installation and dependency management</li>
+    <li><strong>Built-in compilers:</strong> GCC, Clang, and other essential tools are readily available or easily installed</li>
+    <li><strong>Container technologies:</strong> Docker, Kubernetes, and containerization tools run natively and efficiently</li>
+    <li><strong>Version control:</strong> Git and other VCS tools integrate seamlessly with the filesystem</li>
+  </ul>
+  <p>The development workflow on Linux is streamlined. There's no need for workarounds, virtual machines, or compatibility layers that add complexity and overhead.</p>
+
+  <h2>Terminal-First Philosophy</h2>
+  <p>The command-line interface in Linux is not an afterthought—it's a first-class citizen. This terminal-first approach enables:</p>
+  <ul>
+    <li><strong>Automation:</strong> Scripting complex workflows becomes natural with bash, zsh, or other shells</li>
+    <li><strong>Efficiency:</strong> Tasks that require multiple clicks in GUI environments can be accomplished with single commands</li>
+    <li><strong>Remote access:</strong> SSH and terminal-based tools make remote development and server management straightforward</li>
+    <li><strong>Reproducibility:</strong> Command-line operations can be documented, version-controlled, and shared as scripts</li>
+  </ul>
+  <p>Commands like <code>grep</code>, <code>awk</code>, <code>sed</code>, and <code>find</code> become powerful tools for text processing, file management, and system administration. This proficiency transfers directly to server environments, which predominantly run Linux.</p>
+
+  <h2>Performance and Resource Efficiency</h2>
+  <p>Linux demonstrates superior performance characteristics, particularly for development workloads:</p>
+  <ul>
+    <li><strong>Lower overhead:</strong> Minimal background processes and efficient resource management</li>
+    <li><strong>Hardware compatibility:</strong> Runs efficiently on a wide range of hardware, from older machines to modern workstations</li>
+    <li><strong>Stability:</strong> Long uptimes and reliable performance under heavy development loads</li>
+    <li><strong>Scalability:</strong> The same system principles apply from local development to production servers</li>
+  </ul>
+  <p>When compiling large codebases, running multiple containers, or managing complex build processes, Linux's efficiency becomes immediately apparent.</p>
+
+  <h2>Professional Relevance</h2>
+  <p>The technology industry heavily relies on Linux. Understanding Linux is not just convenient—it's professionally relevant:</p>
+  <ul>
+    <li><strong>Server environments:</strong> The majority of web servers, cloud infrastructure, and enterprise systems run Linux</li>
+    <li><strong>DevOps practices:</strong> CI/CD pipelines, infrastructure as code, and automation tools are Linux-native</li>
+    <li><strong>Cloud platforms:</strong> AWS, Google Cloud, and Azure all provide Linux-based services as their primary offering</li>
+    <li><strong>Career development:</strong> Linux proficiency is often a requirement or significant advantage in technical roles</li>
+  </ul>
+  <p>By using Linux as your primary development environment, you're building skills that directly translate to professional contexts.</p>
+
+  <h2>Learning and Growth</h2>
+  <p>Linux encourages deeper understanding of computing fundamentals:</p>
+  <ul>
+    <li><strong>System architecture:</strong> Understanding processes, file permissions, and system calls</li>
+    <li><strong>Networking:</strong> Direct exposure to network configuration and protocols</li>
+    <li><strong>Security:</strong> Learning about user permissions, firewall configuration, and system hardening</li>
+    <li><strong>Problem-solving:</strong> The need to troubleshoot and configure systems builds technical competence</li>
+  </ul>
+  <p>This knowledge extends beyond Linux itself—it provides a foundation for understanding how modern computing systems work at a fundamental level.</p>
+
+  <h2>Ecosystem and Community</h2>
+  <p>The Linux ecosystem offers extensive resources and support:</p>
+  <ul>
+    <li><strong>Documentation:</strong> Comprehensive man pages, wikis, and official documentation for virtually every tool</li>
+    <li><strong>Community support:</strong> Active forums, Stack Overflow, and community-driven solutions</li>
+    <li><strong>Software availability:</strong> Vast repositories of free, open-source software for every need</li>
+    <li><strong>Continuous innovation:</strong> Rapid development and improvement driven by global community contributions</li>
+  </ul>
+
+  <blockquote>
+    Linux represents more than an operating system—it's a philosophy of openness, efficiency, and technical excellence. For developers, it provides an environment that aligns with how modern software is built, deployed, and maintained.
+  </blockquote>
+
+  <h2>Conclusion</h2>
+  <p>My preference for Linux stems from practical considerations: superior development tooling, efficient resource usage, professional relevance, and the opportunity for continuous learning. While the initial learning curve exists, the long-term benefits—both technical and professional—make it a worthwhile investment.</p>
+  <p>For developers serious about their craft, Linux offers an environment that doesn't just accommodate development work—it's designed for it. The combination of powerful tools, transparent architecture, and professional alignment makes Linux not just a preference, but a strategic choice for software development.</p>
+
+</body>
+</html>
+
