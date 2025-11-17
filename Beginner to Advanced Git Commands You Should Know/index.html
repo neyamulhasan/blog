@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beginner to Advanced Git Commands You Should Know - My CS Blog</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(to right, #fff, #ccc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+    }
+
+    .tag {
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-weight: 500;
+      color: #ccc;
+    }
+
+    .tag.date {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      border-color: #fff;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 40px;
+      color: #fff;
+      position: relative;
+    }
+
+    h2::before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 10px;
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(to bottom, #fff, #aaa);
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 30px;
+      color: #fff;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #ccc;
+      text-align: justify;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    code {
+      background: #1a1a1a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #0ff;
+      font-family: monospace;
+    }
+
+    pre {
+      background: #1a1a1a;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: #0ff;
+    }
+
+    blockquote {
+      border-left: 4px solid #888;
+      padding-left: 20px;
+      font-style: italic;
+      color: #aaa;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Beginner to Advanced Git Commands You Should Know</h1>
+
+  <div class="tags">
+    <span class="tag date">June 23, 2025</span>
+    <span class="tag">Git</span>
+    <span class="tag">9 min read</span>
+  </div>
+
+  <p><strong>As a Computer Science student, learning Git was a game-changer for me.</strong> At first, it felt confusing—commits, branches, merges—but over time, Git became my <strong>best friend for managing code</strong>. Whether you're working on solo projects or collaborating with a team, knowing Git commands is essential. In this blog, I'll take you <strong>from beginner to advanced Git commands</strong> so you can confidently manage your projects.</p>
+
+  <h2>Why Git is Important</h2>
+  <p>Git is a <strong>version control system</strong> that tracks changes in your code. It allows you to:</p>
+  <ul>
+    <li>Save multiple versions of your code</li>
+    <li>Collaborate with teammates without overwriting each other's work</li>
+    <li>Revert changes when things go wrong</li>
+    <li>Maintain a clean, organized code history</li>
+  </ul>
+  <p>Learning Git commands is like learning the vocabulary of software development—it's essential for any coder.</p>
+
+  <h2>Beginner Git Commands</h2>
+  <p>These are the commands you'll use most often when starting with Git:</p>
+
+  <h3>1. git init</h3>
+  <p>Initializes a new Git repository in your project folder.</p>
+  <pre><code>git init</code></pre>
+
+  <h3>2. git clone</h3>
+  <p>Copies an existing repository to your local machine.</p>
+  <pre><code>git clone https://github.com/username/repository.git</code></pre>
+
+  <h3>3. git status</h3>
+  <p>Shows the current status of files—tracked, untracked, or modified.</p>
+  <pre><code>git status</code></pre>
+
+  <h3>4. git add</h3>
+  <p>Stages changes to be committed.</p>
+  <pre><code>git add filename    # Add a single file
+git add .           # Add all changes</code></pre>
+
+  <h3>5. git commit</h3>
+  <p>Saves your staged changes with a message.</p>
+  <pre><code>git commit -m "Initial commit"</code></pre>
+
+  <h3>6. git push</h3>
+  <p>Uploads your changes to a remote repository.</p>
+  <pre><code>git push origin main</code></pre>
+
+  <h3>7. git pull</h3>
+  <p>Downloads the latest changes from a remote repository.</p>
+  <pre><code>git pull origin main</code></pre>
+
+  <h2>Intermediate Git Commands</h2>
+  <p>Once you're comfortable with the basics, these commands help you work with branches and history:</p>
+
+  <h3>1. git branch</h3>
+  <p>Shows existing branches or creates a new branch.</p>
+  <pre><code>git branch           # List branches
+git branch feature   # Create a new branch</code></pre>
+
+  <h3>2. git checkout</h3>
+  <p>Switches to a different branch.</p>
+  <pre><code>git checkout feature</code></pre>
+  <p>Note: Modern Git also supports <code>git switch</code> for changing branches, which is more intuitive.</p>
+
+  <h3>3. git merge</h3>
+  <p>Combines changes from one branch into another.</p>
+  <pre><code>git checkout main
+git merge feature</code></pre>
+
+  <h3>4. git log</h3>
+  <p>Shows the commit history.</p>
+  <pre><code>git log</code></pre>
+  <p>For a more compact view, use <code>git log --oneline</code>.</p>
+
+  <h3>5. git diff</h3>
+  <p>Shows changes between commits, branches, or working directory.</p>
+  <pre><code>git diff</code></pre>
+
+  <h2>Advanced Git Commands</h2>
+  <p>These commands give you more control over your Git workflow and history:</p>
+
+  <h3>1. git rebase</h3>
+  <p>Moves or combines a sequence of commits to a new base. Keeps a <strong>clean history</strong>.</p>
+  <pre><code>git checkout feature
+git rebase main</code></pre>
+  <p>Warning: Only rebase commits that haven't been pushed to a shared repository.</p>
+
+  <h3>2. git stash</h3>
+  <p>Temporarily saves changes without committing. Useful when switching branches.</p>
+  <pre><code>git stash          # Save changes
+git stash apply    # Apply saved changes
+git stash list     # List all stashes</code></pre>
+
+  <h3>3. git cherry-pick</h3>
+  <p>Applies a specific commit from another branch.</p>
+  <pre><code>git cherry-pick &lt;commit-hash&gt;</code></pre>
+  <p>Useful when you want to bring a specific fix or feature from one branch to another without merging the entire branch.</p>
+
+  <h3>4. git reset</h3>
+  <p>Undo commits or changes. Be careful—this can modify history.</p>
+  <pre><code>git reset --soft HEAD~1   # Undo last commit but keep changes
+git reset --hard HEAD~1   # Undo last commit completely</code></pre>
+  <p>Use <code>--soft</code> to keep your changes staged, or <code>--hard</code> to discard them completely.</p>
+
+  <h3>5. git tag</h3>
+  <p>Mark important points in your project (like releases).</p>
+  <pre><code>git tag v1.0
+git push origin v1.0</code></pre>
+  <p>Tags are useful for marking releases and can be annotated with messages using <code>git tag -a v1.0 -m "Release version 1.0"</code>.</p>
+
+  <h2>Tips for Using Git Effectively</h2>
+  <ul>
+    <li><strong>Commit Often:</strong> Smaller commits make tracking changes easier and help you identify problems faster.</li>
+    <li><strong>Use Meaningful Messages:</strong> Clear commit messages help you and your team understand changes. Write them in present tense, like "Add user authentication" not "Added user authentication".</li>
+    <li><strong>Work on Feature Branches:</strong> Keeps the main branch stable and deployable. Create a branch for each feature or bug fix.</li>
+    <li><strong>Pull Before Push:</strong> Avoid conflicts by syncing with the remote repository first. Always <code>git pull</code> before <code>git push</code>.</li>
+    <li><strong>Review Your Changes:</strong> Use <code>git diff</code> and <code>git status</code> before committing to make sure you're committing what you intend to.</li>
+  </ul>
+
+  <blockquote>
+    Git is more than a tool—it's a skill every developer should master. From the basics like git init and git commit to advanced commands like git rebase and git cherry-pick, knowing Git helps you work faster, collaborate efficiently, and maintain clean code history.
+  </blockquote>
+
+  <h2>What Should CS Students Take Away?</h2>
+  <ul>
+    <li>Start with the basics—master <code>git add</code>, <code>git commit</code>, and <code>git push</code> before moving to advanced commands</li>
+    <li>Practice on personal projects—experiment with branches and merges without fear of breaking anything</li>
+    <li>Learn to read Git history—understanding <code>git log</code> helps you see how projects evolve</li>
+    <li>Don't be afraid of mistakes—Git has safety nets, and you can almost always recover from errors</li>
+    <li>Use Git for everything—even solo projects benefit from version control</li>
+  </ul>
+
+  <p>Start practicing these commands today, and you'll see how much smoother coding projects can become—whether it's for school assignments, personal projects, or professional development. The more you use Git, the more natural these commands will feel, and soon you'll be managing code like a pro.</p>
+
+</body>
+</html>
+

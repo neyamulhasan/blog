@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Debug Code Like a Pro: Tips and Tools for Beginners - My CS Blog</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(to right, #fff, #ccc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+    }
+
+    .tag {
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-weight: 500;
+      color: #ccc;
+    }
+
+    .tag.date {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      border-color: #fff;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 40px;
+      color: #fff;
+      position: relative;
+    }
+
+    h2::before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 10px;
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(to bottom, #fff, #aaa);
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 30px;
+      color: #fff;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #ccc;
+      text-align: justify;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    code {
+      background: #1a1a1a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #0ff;
+      font-family: monospace;
+    }
+
+    pre {
+      background: #1a1a1a;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: #0ff;
+    }
+
+    blockquote {
+      border-left: 4px solid #888;
+      padding-left: 20px;
+      font-style: italic;
+      color: #aaa;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>How to Debug Code Like a Pro: Tips and Tools for Beginners</h1>
+
+  <div class="tags">
+    <span class="tag date">June 23, 2025</span>
+    <span class="tag">Debugging</span>
+    <span class="tag">6 min read</span>
+  </div>
+
+  <p><strong>Debugging is one of the most important skills a programmer can have.</strong> Writing code is only half the battle—the other half is figuring out why it doesn't work. As a CSE student, I've spent countless hours hunting down errors, and over time I've learned that debugging is not just about fixing mistakes—it's about <strong>understanding your code and thinking logically</strong>.</p>
+  <p>In this blog, I'll share tips, techniques, and tools to help you debug code effectively, whether you're a beginner or someone looking to improve their coding skills.</p>
+
+  <h2>What is Debugging?</h2>
+  <p>Debugging is the process of <strong>finding and fixing errors in your code</strong>. Errors can be:</p>
+  <ol>
+    <li><strong>Syntax Errors</strong> – Mistakes in the structure of the code, like missing semicolons or parentheses. These are usually caught by the compiler or interpreter before the program runs.</li>
+    <li><strong>Runtime Errors</strong> – Problems that appear while the program is running, such as dividing by zero or accessing invalid memory. The program crashes or throws exceptions.</li>
+    <li><strong>Logical Errors</strong> – The code runs without crashing but gives the wrong output. These are often the hardest to find because there's no error message to guide you.</li>
+  </ol>
+
+  <h2>Tips for Debugging Like a Pro</h2>
+
+  <h3>1. Understand the Problem First</h3>
+  <p>Before you even touch the code, make sure you understand the problem clearly. Ask yourself:</p>
+  <ul>
+    <li>What is the expected output?</li>
+    <li>What is the actual output?</li>
+    <li>Where could the code go wrong?</li>
+  </ul>
+  <p>Understanding the problem saves a lot of time hunting for invisible mistakes. Sometimes, the issue isn't in the code—it's in our understanding of what the code should do.</p>
+
+  <h3>2. Read Error Messages Carefully</h3>
+  <p>Error messages are not your enemy—they're <strong>hints</strong>. Read them line by line. Many beginners ignore them, but often the solution is in the message itself. Error messages tell you:</p>
+  <ul>
+    <li>What type of error occurred</li>
+    <li>Where it happened (file name and line number)</li>
+    <li>Sometimes, what caused it</li>
+  </ul>
+
+  <h3>3. Use Print Statements</h3>
+  <p>One of the simplest yet most effective debugging tools is <code>print()</code>. By printing variable values and outputs at different points in your program, you can see exactly where things go wrong.</p>
+  <p>Example in Python:</p>
+  <pre><code>x = 10
+y = 0
+print("Before division:", x, y)
+result = x / y
+print("Result:", result)</code></pre>
+  <p>This helps you track the flow of data and identify where values change unexpectedly.</p>
+
+  <h3>4. Break the Code into Smaller Parts</h3>
+  <p>If your program is large, test each function or module separately. This helps you isolate the problem and makes it easier to fix. Instead of debugging a 500-line program, you're debugging a 20-line function.</p>
+
+  <h3>5. Check Edge Cases</h3>
+  <p>Some errors only appear with unusual inputs. Test your code with extreme, empty, or unexpected inputs to make sure it handles all cases. Common edge cases include:</p>
+  <ul>
+    <li>Empty strings or arrays</li>
+    <li>Zero or negative numbers</li>
+    <li>Very large numbers</li>
+    <li>Null or undefined values</li>
+  </ul>
+
+  <h3>6. Use a Debugger</h3>
+  <p>Modern IDEs like <strong>VS Code</strong>, <strong>PyCharm</strong>, or <strong>IntelliJ</strong> have built-in debuggers. They allow you to:</p>
+  <ul>
+    <li>Set <strong>breakpoints</strong> to pause execution at specific lines</li>
+    <li>Step through your code line by line</li>
+    <li>Inspect variable values in real-time</li>
+    <li>Watch expressions change as code executes</li>
+  </ul>
+  <p>Debuggers are a game-changer for understanding exactly what your program is doing. They're like having X-ray vision for your code.</p>
+
+  <h3>7. Google and Stack Overflow Are Your Friends</h3>
+  <p>Sometimes, the problem isn't obvious. Searching online for your error message or issue can save hours of frustration. Just remember to <strong>understand the solution, not just copy-paste it</strong>. Learning why something works helps you avoid similar problems in the future.</p>
+
+  <h3>8. Take a Break</h3>
+  <p>If you're stuck, step away for a few minutes. Fresh eyes often spot problems immediately that you couldn't see before. Debugging requires mental clarity, and fatigue can make you miss obvious issues.</p>
+
+  <h2>Common Debugging Tools</h2>
+  <p>Here are some beginner-friendly tools you can use for different programming languages:</p>
+  <ul>
+    <li><strong>Python:</strong> Built-in <code>pdb</code> module, or IDE debuggers like PyCharm and VS Code</li>
+    <li><strong>Java:</strong> IntelliJ IDEA or Eclipse debugger</li>
+    <li><strong>C/C++:</strong> GDB (GNU Debugger) or IDE-integrated debuggers</li>
+    <li><strong>JavaScript:</strong> Browser DevTools (Chrome/Firefox) with breakpoints and console logging</li>
+    <li><strong>Web Development:</strong> Browser DevTools for inspecting network requests, DOM elements, and console errors</li>
+  </ul>
+
+  <blockquote>
+    Debugging is not just about fixing mistakes—it's a skill that makes you a better programmer. By understanding your code, thinking logically, and using the right tools, you can solve problems faster and write more reliable programs.
+  </blockquote>
+
+  <h2>What Should CS Students Take Away?</h2>
+  <ul>
+    <li>Don't fear errors—they're opportunities to learn how code actually works</li>
+    <li>Master the basics first: read error messages, use print statements, and understand the problem</li>
+    <li>Learn to use a debugger—it's a skill that will save you countless hours</li>
+    <li>Build a debugging mindset: be systematic, patient, and methodical</li>
+    <li>Remember that even experienced developers spend significant time debugging—it's part of the job</li>
+  </ul>
+
+  <p>Remember, every error you fix is a learning opportunity. The more you debug, the more you understand how code works—and the closer you get to thinking like a pro developer. Debugging teaches you to read code carefully, think critically, and solve problems systematically.</p>
+
+</body>
+</html>
+
